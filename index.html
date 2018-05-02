@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show me Seven!</title>
+</head>
+
+<body>
+    <script>
+        let count = [" ", " ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+
+        function roller() {
+            let rollOfDice = 0;
+            for (let rolls = 1; rolls <= 1000; rolls++) {
+                const dice1 = Math.floor(Math.random() * 6) + 1;
+                const dice2 = Math.floor(Math.random() * 6) + 1;
+                rollOfDice = dice1 + dice2;
+                count[rollOfDice] = count[rollOfDice] + 1;
+            }
+        }
+        roller();
+
+        for (let i = 2; i < count.length; i++) {
+                let newDiv = document.createElement("div");
+                newDiv.textContent = i +": " + count[i];
+                newDiv.style.background = "lightgreen";
+                newDiv.style.borderColor = "black";
+                newDiv.style.border = "1px";
+                newDiv.style.width = count[i]*2 + "px";
+                
+                document.body.appendChild(newDiv);
+                
+            }
+
+
+    </script>
+
+
+
+</body>
+
+</html>
